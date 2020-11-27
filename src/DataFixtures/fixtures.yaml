@@ -1,0 +1,31 @@
+# On met le FQCN (Fully Qualified Class Name, le nom de classe avec son namespace) de nos entités
+App\Entity\Builder:
+    builder_{1..10}:
+        name: '<company()>'
+
+App\Entity\Model:
+    model_{1..70}:
+        name: '<colorName()>'
+        builder: '@builder_*'
+
+App\Entity\Finish:
+    finish_{1..10}:
+        name: '<domainWord()>'
+
+App\Entity\Version:
+    version_{1..90}:
+        name: '<cityPrefix()>'
+
+App\Entity\Generation:
+    generation_{1..10}:
+        generation: '<buildingNumber()>'
+
+App\Entity\Car:
+    car_{1..100}:
+        model: '@model_*'
+        # finish: '@finish_*'
+        version: '@version_*'
+        generation: '@generation_*'
+
+App\Entity\Power:
+    power_{1..5}: '<citySuffix()>'
