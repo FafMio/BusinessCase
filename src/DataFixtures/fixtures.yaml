@@ -1,31 +1,57 @@
 # On met le FQCN (Fully Qualified Class Name, le nom de classe avec son namespace) de nos entités
 App\Entity\Builder:
     builder_{1..10}:
-        name: '<company()>'
+        name (unique): '<company()>'
 
 App\Entity\Model:
     model_{1..70}:
-        name: '<colorName()>'
+        name (unique): '<colorName()>'
         builder: '@builder_*'
 
 App\Entity\Finish:
     finish_{1..10}:
-        name: '<domainWord()>'
+        name (unique): '<domainWord()>'
 
 App\Entity\Version:
     version_{1..90}:
-        name: '<cityPrefix()>'
+        name (unique): '<jobTitle()>'
 
 App\Entity\Generation:
     generation_{1..10}:
-        generation: '<buildingNumber()>'
+        generation (unique): '<numberBetween(1, 10)>'
 
 App\Entity\Car:
     car_{1..100}:
         model: '@model_*'
-        # finish: '@finish_*'
         version: '@version_*'
         generation: '@generation_*'
 
 App\Entity\Power:
-    power_{1..5}: '<citySuffix()>'
+    power_{1..5}: 
+        type (unique): '<citySuffix()>'
+
+App\Entity\Color:
+    color_{1..10}:
+        color (unique): '<safeColorName()>'
+
+App\Entity\Ad:
+    ad_{1..100}:
+        title: '<catchPhrase()>'
+        body: '<realText(200, 2)>'
+        yearOfCirculation: '<year()>'
+        mileage: '<numberBetween(10000, 200000)>'
+        price: '<randomFloat(2, 1000.00, 50000.00)>'
+        reference: "<regexify('[A-Z0-9]{10}')>"
+        publishedAt: '<dateTime()>'
+        hasFiveDoors: '<numberBetween(0, 1)>'
+        hasMechanicalGearbox: '<numberBetween(0, 1)>'
+        CO2emission: '<numberBetween(20, 350)>'
+        power: '@power_*'
+        color: '@color_*'
+        car: '@car_*'
+
+App\Entity\Picture:
+    picture_{1..150}:
+        link (unique): '<imageUrl(550, 350)>'
+        rank: '<numberBetween(1, 10)>'
+        ad: '@ad_*'

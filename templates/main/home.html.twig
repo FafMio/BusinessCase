@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<main class="container m-auto p-0 row">
+	<aside class="px-3 search">
+		<h2 class="py-5 text-center">Recherche</h2>
+		<ul class="d-flex flex-column">
+			<li class="align-items-center d-flex">
+				<i class="fas fa-plus mr-2"></i>
+				<i class="d-none fas fa-minus"></i>
+				<p class="m-0">Marques</p>
+			</li>
+			<li class="align-items-center d-flex">
+				<i class="fas fa-plus mr-2"></i>
+				<i class="d-none fas fa-minus"></i>
+				<p class="m-0">Carburant</p>
+			</li>
+			<li class="less-mb">
+				<p>
+					<label for="year">Année</label>
+					<input type="text" id="year" readonly>
+				</p>
+				<div class="m-auto" id="year-range"></div>
+			</li>
+			<li class="less-mb">
+				<p>
+					<label for="km">Kilométrage</label>
+					<input type="text" id="km" readonly>
+				</p>
+				<div class="m-auto" id="km-range"></div>
+			</li>
+			<li class="less-mb">
+				<p>
+					<label for="price">Prix</label>
+					<input type="text" id="price" readonly>
+				</p>
+				<div class="m-auto" id="price-range"></div>
+			</li>
+		</ul>
+	</aside>
+
+	<a href="{{ path('ad_ad', {'id': 2}) }}">Audi A5</a>
+</main>
+{% endblock %}

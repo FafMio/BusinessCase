@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ ad.title }} {% endblock %}
+
+{% block body %}
+	<main class="container m-auto p-0 py-5 row">
+
+		<!-- Description and pictures -->
+		<section class="col-md-8">
+			<div class="align-items-start d-flex justify-content-between row">
+				<img class="col-9" src="{{ asset('img/pictures/audia5.jpg') }}" alt="Audi A5">
+				<aside class="col-3 text-right">
+                {% for picture in ad.picture %}
+					<img class="w-100" src="{{ picture.link }}" alt="{{ picture.rank }}">
+                {% endfor %}
+				</aside>
+				<article class="ml-4 mt-4 px-3 pt-3 pb-1 text-justify">
+					<h2>Histoire du véhicule</h2>
+					<p> {{ ad.body }} </p>
+					<p class="mb-0 text-right">Annonce mise en ligne le {{ ad.publishedAt|date('d/m/Y') }} à {{ ad.publishedAt|date('H:i') }}</p>
+				</article>
+			</div>
+		</section>
+		<!-- Car's informations -->
+		<section class="col-md-4"></section>
+	</main>
+{% endblock %}

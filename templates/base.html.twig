@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="fr">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('/css/base.css') }}">
+		<link rel="stylesheet" href="{{ asset('/css/style.css') }}"> {% block stylesheets %}{% endblock %}
+
+		<link rel="icon" href="{{ asset('/img/icones/favicon_test.ico') }}" type="image/x-icon">
+
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<script src="{{ asset('/js/searchBar.js') }}"></script>
+
+		<script src="https://kit.fontawesome.com/ac8641d84e.js" crossorigin="anonymous"></script>
+		<title>
+			{% block title %}Centre Auto CCAS - Accueil{% endblock %}
+		</title>
+
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<nav class="align-items-center d-flex justify-content-between">
+					<a id="logo" href="{{ path('main_home') }}"></a>
+					<h1>Centre Auto CCAS</h1>
+					<a class="btn" href="#">Espace Pro</a>
+				</nav>
+			</div>
+		</header>
+
+		{% block body %}{% endblock %}
+		{% block javascripts %}{% endblock %}
+
+		<footer class="container-fluid">
+			<nav class="container align-items-center d-flex justify-content-between">
+				<ul class="align-items-center d-flex font-weight-bold mb-0 text-uppercase text-white">
+					<li>
+						<p class="m-0">2020 © Centre'Auto'CCAS by DP</p>
+					</li>
+					<li class="mx-5">
+						<a href="#">Mentions légales</a>
+					</li>
+					<li>
+						<a href="#">Contact</a>
+					</li>
+				</ul>
+				<ul class="d-flex font-weight-bold mb-0 text-uppercase text-white">
+					<li>
+						<a href="messenger.com">
+							<i class="fab fa-facebook-messenger"></i>
+						</a>
+					</li>
+					<li class="mx-4">
+						<a href="twitter.com">
+							<i class="fab fa-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="facebook.com">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</footer>
+	</body>
 </html>
